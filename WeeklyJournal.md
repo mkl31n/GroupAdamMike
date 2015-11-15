@@ -9,8 +9,8 @@ for the setup.
 
 ### 11/14 - Update
 Added user to table <br />
-CREATE USER 'administrator'@'localhost' IDENTIFIED BY 'admin';
-GRANT SELECT ON fortune.* TO 'administrator'@'localhost';
-GRANT INSERT ON fortune.* TO 'administrator'@'localhost';
+CREATE USER 'administrator'@'localhost' IDENTIFIED BY 'admin'; <br />
+GRANT SELECT ON fortune.* TO 'administrator'@'localhost'; <br />
+GRANT INSERT ON fortune.* TO 'administrator'@'localhost'; <br />
     
     

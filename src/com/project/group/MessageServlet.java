@@ -20,7 +20,7 @@ public class MessageServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException,IOException {
 
-        System.out.println("I'll get the next message!!!");
+        System.out.println("I'll get a random message!!!");
 
         String url = "/message.jsp";
 

@@ -26,9 +26,10 @@ public class MessageDao {
         ResultSet results = selectStatement.executeQuery(sql);
 
         while (results.next()) {
-            String storedMessage = results.getString("forecastHi");
+            String storedMessage = results.getString("text");
 
-            Message myMessage = new Message(storedMessage);
+            Message myMessage = new Message();
+            myMessage.setFortune(storedMessage);
             myMessages.add(myMessage);
         }
 

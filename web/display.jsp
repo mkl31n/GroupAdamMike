@@ -8,13 +8,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Display</title>
+    <title>Fortune Entry</title>
 </head>
 <body>
-  All application users can access this page.
-  <ul>
-    <li><a href="admin.jsp">Take me to the Admin Page</a></li>
-    <li><a href="index.jsp">Take me Home</a></li>
-  </ul>
+<h4>Enter Birth Date for Fortune</h4>
+
+<form action="Fortune" method="GET">
+  <label>Birth Month</label>
+  <input type="text" name="month" value="" /><br />
+  <br />
+  <label>Calendar Day</label>
+  <input type="text" name="day" value="" /><br />
+  <br />
+  <label>Year</label>
+  <input type="text" name="year" value="" /><br />
+  <br />
+  <input type="submit" name="" value="Enter" />
+</form>
+<ul>
+  <li><a href="admin.jsp">Take me to the Admin Page</a></li>
+  <li><a href="index.jsp">Take me Home</a></li>
+</ul>
 </body>
+
 </html>

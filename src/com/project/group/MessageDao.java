@@ -13,52 +13,132 @@ import java.util.List;
  */
 public class MessageDao {
 
-    public List<Message> getAllMessages() throws SQLException {
-
-        List<Message> myMessages = new ArrayList<Message>();
+    // Need to correct method to return all messages
+    public void getAllMessages() {
+        Message myMessage = new Message();
+        int count = 0;
+        ResultSet resultSet = null;
 
         Connection connection = Database.getInstance().getConnection();
-
-        String sql = "SELECT * FROM message";
-
-        Statement selectStatement = connection.createStatement();
-
-        ResultSet results = selectStatement.executeQuery(sql);
-
-        while (results.next()) {
-            String storedMessage = results.getString("text");
-
-            Message myMessage = new Message();
-            myMessage.setFortune(storedMessage);
-            myMessages.add(myMessage);
-        }
-
-        results.close();
-        selectStatement.close();
-
-        return myMessages;
-    }
-
-    public void insertMessage() {
-
-        Message myMessage = new Message();
-
-        String fortune = "Test to See if this Works!!!!";
+        Statement selectStatement = null;
 
         try {
-            Connection connection = Database.getInstance().getConnection();
+            selectStatement = connection.createStatement();
 
-            String sql = "INSERT INTO message VALUES (fortune)";
-            Statement selectStatement = connection.createStatement();
+            String queryString = "SELECT * FROM message";
 
-            int rowsAffected = selectStatement.executeUpdate(sql);
+            resultSet = selectStatement.executeQuery(queryString);
 
-            System.out.println("rows affected: " + rowsAffected);
+            while (resultSet.next()) {
+                myMessage.setFortune(resultSet.getString("text"));
+                ++count;
+            }
+
+            System.out.println("rows affected: " + count);
+            System.out.println(myMessage.getFortune());
 
         } catch (SQLException sqlException) {
             System.err.println("Error in connection.ecting to database "
                     + sqlException);
-            sqlException.printStackTrace();
+        } catch (Exception exception) {
+            System.err.println("General Error");
+            exception.printStackTrace();
+        }
+    }
+
+    // We need a method that will generate myNumber based on how many entries are in the database
+    public void getMessage(int myNumber) {
+        Message myMessage = new Message();
+        int count = 0;
+        ResultSet resultSet = null;
+
+        Connection connection = Database.getInstance().getConnection();
+        Statement selectStatement = null;
+
+        try {
+            selectStatement = connection.createStatement();
+
+            String queryString = "SELECT text FROM message WHERE id = " + myNumber;
+
+            resultSet = selectStatement.executeQuery(queryString);
+
+            while (resultSet.next()) {
+                myMessage.setFortune(resultSet.getString("text"));
+                ++count;
+            }
+
+            System.out.println("rows affected: " + count);
+            System.out.println(myMessage.getFortune());
+
+        } catch (SQLException sqlException) {
+            System.err.println("Error in connection.ecting to database "
+                    + sqlException);
+        } catch (Exception exception) {
+            System.err.println("General Error");
+            exception.printStackTrace();
+        }
+    }
+
+    // Need to correct method to insert
+    public void insertMessage() {
+        Message myMessage = new Message();
+        int count = 0;
+        ResultSet resultSet = null;
+
+        Connection connection = Database.getInstance().getConnection();
+        Statement selectStatement = null;
+
+        try {
+            selectStatement = connection.createStatement();
+
+            String queryString = "SELECT text FROM message WHERE id = " + myNumber;
+
+            resultSet = selectStatement.executeQuery(queryString);
+
+            while (resultSet.next()) {
+                myMessage.setFortune(resultSet.getString("text"));
+                ++count;
+            }
+
+            System.out.println("rows affected: " + count);
+            System.out.println(myMessage.getFortune());
+
+        } catch (SQLException sqlException) {
+            System.err.println("Error in connection.ecting to database "
+                    + sqlException);
+        } catch (Exception exception) {
+            System.err.println("General Error");
+            exception.printStackTrace();
+        }
+    }
+
+    // Need to correct method to delete
+    public void deleteMessage(int myNumber) {
+        Message myMessage = new Message();
+        int count = 0;
+        ResultSet resultSet = null;
+
+        Connection connection = Database.getInstance().getConnection();
+        Statement selectStatement = null;
+
+        try {
+            selectStatement = connection.createStatement();
+
+            String queryString = "SELECT text FROM message WHERE id = " + myNumber;
+
+            resultSet = selectStatement.executeQuery(queryString);
+
+            while (resultSet.next()) {
+                myMessage.setFortune(resultSet.getString("text"));
+                ++count;
+            }
+
+            System.out.println("rows affected: " + count);
+            System.out.println(myMessage.getFortune());
+
+        } catch (SQLException sqlException) {
+            System.err.println("Error in connection.ecting to database "
+                    + sqlException);
         } catch (Exception exception) {
             System.err.println("General Error");
             exception.printStackTrace();

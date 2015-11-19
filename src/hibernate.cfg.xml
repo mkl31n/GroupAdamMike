@@ -6,21 +6,21 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.url">
-            jdbc:mysql://localhost:3306/fortune <!--change port to correct port on your machine -->
+            jdbc:mysql://localhost:3307/fortune <!--change port to correct port on your machine -->
         </property>
         <property name="connection.driver_class">
             com.mysql.jdbc.Driver
         </property>
         <property name="connection.username">
-            tomcat
+            administrator
         </property>
         <property name="connection.password">
-            tomcat
+            admin
         </property>
 
         <!-- List of XML mapping files -->
-        <mapping resource=""  class="" />
-
-
+        <mapping resource="Message.hbm.xml" />
+        <mapping class="com.project.group.entity.Message" />
     </session-factory>
+
 </hibernate-configuration>

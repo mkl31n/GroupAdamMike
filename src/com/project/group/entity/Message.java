@@ -8,7 +8,7 @@ package com.project.group.entity;
 public class Message {
 
     private int id;
-    private String fortune;
+    private String myMessage;
 
     /**
      * zero arg constructor
@@ -19,17 +19,16 @@ public class Message {
 
     /**
      *
-     * @param id ref to fortune id number
-     * @param fortune ref to fortune String
+     * @param id ref to myMessage id number
+     * @param myMessage ref to myMessage String
      */
-    public Message(int id, String fortune) {
-
+    public Message(int id, String myMessage) {
         this.id = id;
-        this.fortune = fortune;
+        this.myMessage = myMessage;
     }
 
     /**
-     * recieve value of fortune var
+     * recieve value of myMessage var
      * @return id
      */
     public int getId() {
@@ -45,19 +44,26 @@ public class Message {
     }
 
     /**
-     * recieve value of fortune var
-     * @return fortune
+     * recieve value of myMessage var
+     * @return myMessage
      */
-    public String getFortune() {
-        return fortune;
+    public String getMyMessage() {
+        return myMessage;
     }
 
     /**
-     * set value of fortune var
-     * @param fortune string content containing fortune
+     * set value of myMessage var
+     * @param myMessage string content containing myMessage
      */
-    public void setFortune(String fortune) {
-        this.fortune = fortune;
+    public void setMyMessage(String myMessage) {
+        this.myMessage = myMessage;
+    }
+
+    public String toString() {
+        return System.lineSeparator() +
+                "Id, Message: " + " "
+                + id + " "
+                + myMessage;
     }
 }
 

@@ -1,4 +1,4 @@
-package com.project.group.database;
+package com.project.group.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

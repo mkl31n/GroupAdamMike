@@ -25,7 +25,7 @@
   <h3>${AddMessage}</h3>
 </c:if>
 <ul>
-  <li><a href="admin.jsp">Take me to the Admin Page</a></li>
+  <li><a href="messageRead.jsp">Read/Delete From Database</a></li>
   <li><a href="index.jsp">Take me Home</a></li>
 </ul>
 </body>

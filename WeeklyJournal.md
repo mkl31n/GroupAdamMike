@@ -12,5 +12,11 @@ Added user to table <br />
 CREATE USER 'administrator'@'localhost' IDENTIFIED BY 'admin'; <br />
 GRANT SELECT ON fortune.* TO 'administrator'@'localhost'; <br />
 GRANT INSERT ON fortune.* TO 'administrator'@'localhost'; <br />
+
+### 11/20 - Update
+Completed jsp and servlets for project. I had a lot of issues with the configuration. Tomcat needed the JSTL jar 
+placed in the lib directory. I fought the hibernate file locations for the web app forever. Also had a hard time
+figuring out how to add the frameworks into intellij and not screw up the git version control. Bottomline, I spent
+way more time on this than I thought I would have.
     
     

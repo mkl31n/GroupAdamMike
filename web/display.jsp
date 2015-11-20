@@ -13,7 +13,7 @@
 <body>
 <h4>Enter Birth Date for Fortune</h4>
 
-<form action="Fortune" method="GET">
+<form action="MessageServlet" method="GET">
   <label>Birth Month</label>
   <input type="text" name="month" value="" /><br />
   <br />
@@ -30,5 +30,4 @@
   <li><a href="index.jsp">Take me Home</a></li>
 </ul>
 </body>
-
 </html>

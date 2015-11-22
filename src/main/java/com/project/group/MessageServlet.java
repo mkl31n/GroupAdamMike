@@ -29,8 +29,7 @@ public class MessageServlet extends HttpServlet {
         MessageDao attribute = (MessageDao)context.getAttribute("dao");
         Random random = new Random();
 
-        int index = random.nextInt(attribute.getMyMessageList().size());
-        Message returnedMessage = attribute.getMyMessage(index);
+        Message returnedMessage = (Message) attribute.getMyMessageList().get(random.nextInt(attribute.getMyMessageList().size()));
 
         // get one Message
         System.out.println("Getting one record");

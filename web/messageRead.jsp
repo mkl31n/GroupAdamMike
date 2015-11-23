@@ -16,7 +16,7 @@
 
 <form action="ReadMessagesServlet" method="GET">
     <label for="term">ID Number</label>
-    <input type="text" name="term" value="" /><br />
+    <input type="text" id ="term" name="term" value="" /><br />
     <br />
     <label for="id">Search</label>
     <input type="radio" name="stype" value="id" id="id"/>

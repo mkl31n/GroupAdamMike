@@ -19,4 +19,7 @@ placed in the lib directory. I fought the hibernate file locations for the web a
 figuring out how to add the frameworks into intellij and not screw up the git version control. Bottomline, I spent
 way more time on this than I thought I would have.
     
-    
+## 11/23 - Update
+Think we are on the same page once again.  Broke some methods into smaller methods.  Believe I had added jDoc to all 
+classes and methods. Will double check after getting some sleep.
+Some code will need to go through to get full understanding. -AJF

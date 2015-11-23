@@ -17,7 +17,9 @@ import java.io.IOException;
 )
 
 /**
- * Created by michaelklein on 11/19/15.
+ *
+ * @author michaelklein
+ * @version 1.0 on 11/19/15.
  */
 public class AppStartup extends HttpServlet{
     private MessageDao dao;

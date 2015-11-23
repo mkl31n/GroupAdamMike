@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by michaelklein on 11/16/15.
+ * @author michaelklein
+ * @version 1.0 on 11/16/15.
  */
 public class MessageDao {
 
@@ -36,9 +37,10 @@ public class MessageDao {
         return id;
     }
 
-    /** Method to CREATE or UPDATE a myMessage in the persistence
-     * If an id of 0 is passed in, a new myMessage entry will be created
-     * If an id of an existing record is passed in, the myMessage is updated
+    /**
+     * Method to CREATE or UPDATE a myMessage in the persistence.
+     * If an id of 0 is passed in, a new myMessage entry will be created.
+     * If an id of an existing record is passed in, the myMessage is updated.
      *
      * @param myMessage The UserRole to be added or created
      **/
@@ -58,8 +60,8 @@ public class MessageDao {
             session.close();
         }
     }
-    /** Method to list all userRoles in the persistence
-     *
+    /**
+     * Method to list all userRoles in the persistence
      * @return all myMessages
      **/
     public List getMyMessageList() {
@@ -78,8 +80,8 @@ public class MessageDao {
         return myMessages;
     }
 
-    /** Method to delete a myMessage
-     *
+    /**
+     * Method to delete a myMessage
      * @param id of the myMessage to be deleted
      **/
     public void deleteMyMessageById(int id) {
@@ -100,8 +102,8 @@ public class MessageDao {
         }
     }
 
-    /** Method to retrieve a myMessage by id
-     *
+    /**
+     * Method to retrieve a myMessage by id
      * @param id of the myMessage to be retrieved
      * @return myMessage matching the id requested
      **/

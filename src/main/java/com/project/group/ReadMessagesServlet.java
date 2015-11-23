@@ -28,7 +28,7 @@ public class ReadMessagesServlet extends HttpServlet {
     private MessageDao attribute;
 
     /**
-     * Retrieves random message from database to display to the user as a fortune
+     * Provides admin view of all messages in db.  Allows CRUD.
      * @param request HttpServletRequest object
      * @param response HttpServletResponse object
      * @throws ServletException if there is a Servlet error

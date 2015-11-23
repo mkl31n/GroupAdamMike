@@ -15,10 +15,18 @@ import java.io.IOException;
 )
 
 /**
- * Created by michaelklein on 11/19/15.
+ * @author michaelklein
+ * @version 1.0 on 11/19/15.
  */
 public class MessageReadServlet extends HttpServlet{
 
+    /**
+     * Forwards admin to messageRead.jsp. Receive session data
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if there is a Servlet error
+     * @throws IOException if there is an input/output error
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

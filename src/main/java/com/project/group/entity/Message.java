@@ -1,7 +1,7 @@
 package com.project.group.entity;
 
-
 /**
+ * JavaBean class for Message object
  * @author  michaelklein, afaherty
  * @version 1.0 11/15/15.
  */

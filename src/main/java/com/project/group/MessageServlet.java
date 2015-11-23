@@ -19,9 +19,19 @@ import java.util.Random;
         urlPatterns = { "/MessageServlet" }
 )
 /**
- * Created by michaelklein on 11/15/15.
+ * Redirects user to message.jsp
+ * @author michaelklein
+ * @version 1.0 11/15/15.
  */
 public class MessageServlet extends HttpServlet {
+
+    /**
+     * Retrieves random message from database to display to the user as a fortune
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws ServletException if there is a Servlet error
+     * @throws IOException if there is an input/output error
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException,IOException {
 
@@ -29,9 +39,10 @@ public class MessageServlet extends HttpServlet {
         MessageDao attribute = (MessageDao)context.getAttribute("dao");
         Random random = new Random();
 
-        Message returnedMessage = (Message) attribute.getMyMessageList().get(random.nextInt(attribute.getMyMessageList().size()));
+        Message returnedMessage = (Message) attribute.getMyMessageList().get(random.nextInt(
+                attribute.getMyMessageList().size()));
 
-        // get one Message
+        // get one Message*
         System.out.println("Getting one record");
         System.out.println(returnedMessage);
         System.out.println();
@@ -39,6 +50,16 @@ public class MessageServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         session.setAttribute("returnedMessage", returnedMessage);
+
+       forwardUser(request, response);
+    }
+
+    /**
+     * Forwards user to message.jsp
+     * @param request HttpServletRequest object
+     * @param response HttpServletResponse ojbect
+     */
+    public void forwardUser(HttpServletRequest request, HttpServletResponse response) {
 
         String url = "/message.jsp";
 

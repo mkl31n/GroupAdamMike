@@ -42,16 +42,19 @@ public class MessageDao {
      * If an id of 0 is passed in, a new myMessage entry will be created.
      * If an id of an existing record is passed in, the myMessage is updated.
      *
-     * @param myMessage The UserRole to be added or created
+     * @param MessageID reference to message id number
+     * @param messageString The UserRole to be added or created
      **/
-    public void addOrUpdateUserMessage(Message myMessage) {
+   /* public void addOrUpdateUserMessage(int MessageID, String messageString) {
 
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         Integer id = null;
         try {
             tx = session.beginTransaction();
-            session.saveOrUpdate(myMessage);
+            Message message = (Message)session.get(Message.class, MessageID);
+            message.setMyMessage(messageString);
+            session.update(message);
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -59,7 +62,7 @@ public class MessageDao {
         } finally {
             session.close();
         }
-    }
+    }*/
     /**
      * Method to list all userRoles in the persistence
      * @return all myMessages
@@ -107,7 +110,7 @@ public class MessageDao {
      * @param id of the myMessage to be retrieved
      * @return myMessage matching the id requested
      **/
-    public Message getMyMessage(int id) {
+    public Message getMessage(int id) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Message myMessage = null;
         try {

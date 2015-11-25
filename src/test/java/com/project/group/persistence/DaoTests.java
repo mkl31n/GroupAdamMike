@@ -3,6 +3,7 @@ package com.project.group.persistence;
 import com.project.group.entity.Message;
 import com.project.group.persistence.MessageDao;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,8 +14,8 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+
+import static org.junit.Assert.*;
 
 /**
  * @author afaherty
@@ -49,19 +50,25 @@ public class DaoTests {
 
         sessionFactory = config.buildSessionFactory(registry);
         session = sessionFactory.openSession();
+
+
     }
 
     @Test
-    public void addMessage() throws Exception {
+    public void addMessage() {
 
-        MessageDao dao = new MessageDao();
-        Message message = new Message(0, "testing addMessage");
+        try {
+            MessageDao dao = new MessageDao();
+            Message message = new Message(0, "testing addMessage");
 
-        assertEquals("testing addMessage", message.getMyMessage());
-        assertNotNull("integer is null",message.getId());
-
-        dao.deleteMyMessageById(message.getId());
+            assertEquals("testing addMessage", message.getMyMessage());
+            assertNotNull("integer is null", message.getId());
+            dao.deleteMyMessageById(message.getId());
+        } catch (HibernateException e) {
+            assertNull(e);
+        }
     }
+
 
    // @Test
     /*public void addOrUpdateUserMessage() {
@@ -81,10 +88,42 @@ public class DaoTests {
     @Test
     public void getMyMessageList() {
 
+
+
     }
 
     @Test
     public void deleteMyMessageById() {
+
+        try {
+            MessageDao dao = new MessageDao();
+            Message message = new Message(0, "testing deleteMessage");
+
+            assertEquals("testing deleteMessage", message.getMyMessage());
+            assertNotNull("integer is null", message.getId());
+            dao.deleteMyMessageById(message.getId());
+            assertNull("testing deleteMessage", dao.getMessage(message.getId()));
+        } catch (HibernateException e) {
+            assertNull(e);
+        }
+    }
+
+    @Test
+    public void getMessage() {
+
+        try {
+
+            MessageDao dao = new MessageDao();
+            Message message = new Message(0, "testing getMessage");
+
+            dao.getMessage(message.getId());
+
+            assertEquals("testing getMessage", message.getMyMessage());
+            assertFalse(message.getId() == 4);
+        } catch (HibernateException e) {
+            assertNull(e);
+        }
+
 
     }
 }

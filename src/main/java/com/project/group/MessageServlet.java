@@ -58,8 +58,10 @@ public class MessageServlet extends HttpServlet {
      * Forwards user to message.jsp
      * @param request HttpServletRequest object
      * @param response HttpServletResponse ojbect
+     * @throws ServletException if there is a servlet error
+     * @throws IOException if there is an input/output error
      */
-    public void forwardUser(HttpServletRequest request, HttpServletResponse response) {
+    public void forwardUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String url = "/message.jsp";
 

@@ -79,9 +79,9 @@ public class ReadMessagesServlet extends HttpServlet {
             List read = attribute.getMyMessageList();
             session.setAttribute("readList", read);
         } else if (stype.equals("delete")) {
-            attribute.deleteMyMessageById(i);
+              attribute.deleteMyMessageById(i);
         } else {
-            Message read = attribute.getMyMessage(i);
+            Message read =  attribute.getMessage(i);
             session.setAttribute("readMessage", read);
         }
     }

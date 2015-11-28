@@ -60,10 +60,7 @@ public class Message {
     }
 
     public String toString() {
-        return System.lineSeparator() +
-                "Id, Message: " + " "
-                + id + " "
-                + myMessage;
+        return myMessage;
     }
 }
 

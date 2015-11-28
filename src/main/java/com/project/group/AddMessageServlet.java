@@ -48,8 +48,12 @@ public class AddMessageServlet extends HttpServlet{
         if (success > 0) {
             session.setAttribute("AddMessage",
                     "Success. Row inserted.");
-            System.out.print(success);
+            System.out.print(success); //SYstem.out.println?
         } else {
+
+            /*
+
+             */
             session.setAttribute("AddMessage",
                     "Row NOT inserted.");
             System.out.print(success);

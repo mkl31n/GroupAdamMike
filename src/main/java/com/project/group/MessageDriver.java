@@ -13,7 +13,7 @@ public class MessageDriver {
      **/
 
     public static void main(String[] args) {
-
+    /*
         MessageDao dao = new MessageDao();
         System.out.println("The messages before running: ");
         System.out.println(dao.getMyMessageList());
@@ -29,7 +29,7 @@ public class MessageDriver {
 
         // Update the Message that we just added
         Message userMessageUpdate = new Message(roleId, "Update the message.");
-        dao.addOrUpdateUserMessage(userMessageUpdate);
+       // dao.addOrUpdateUserMessage(userMessageUpdate);
 
         System.out.println("The messages after update : ");
         System.out.println(dao.getMyMessageList());
@@ -37,7 +37,7 @@ public class MessageDriver {
 
         // get just one Message (the one that we just updated)
         System.out.println("Getting one record");
-        System.out.println(dao.getMyMessage(roleId));
+       // System.out.println(dao.getMyMessage(roleId));
         System.out.println();
 
         // Delete the message that we just updated
@@ -46,6 +46,6 @@ public class MessageDriver {
         System.out.println("The messages after delete : ");
         System.out.println(dao.getMyMessageList());
         System.out.println();
-
+    */
     }
 }

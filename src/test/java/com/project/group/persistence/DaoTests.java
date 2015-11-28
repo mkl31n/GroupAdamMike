@@ -80,13 +80,12 @@ public class DaoTests {
 
         dao.addMessage(message);
 
-        //assertEquals("testing update message", message.getMyMessage());
-        System.out.print(dao.getMessage(message.getId()));
-        dao.addOrUpdateUserMessage(message.getId(), "updating message");
-        System.out.println(dao.getMessage(message.getId())); // MESSAGE IS NOT UPDATING
+        assertEquals("testing update message", message.getMyMessage());
 
-        //assertEquals("updating message", message.getMyMessage());
-      // assertNotNull("integer is null",message.getId());
+        dao.addOrUpdateUserMessage(message.getId(), "updating message");
+
+        assertEquals( "updating message" , String.valueOf(dao.getMessage(message.getId())));
+        assertNotNull("integer is null",message.getId());
 
         dao.deleteMyMessageById(message.getId());
     }

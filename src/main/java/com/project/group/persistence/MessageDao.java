@@ -45,24 +45,30 @@ public class MessageDao {
      * @param MessageID reference to message id number
      * @param messageString The UserRole to be added or created
      **/
-   /* public void addOrUpdateUserMessage(int MessageID, String messageString) {
+   public void addOrUpdateUserMessage(int MessageID, String messageString) {
 
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
-        Integer id = null;
+
         try {
+
             tx = session.beginTransaction();
             Message message = (Message)session.get(Message.class, MessageID);
+
             message.setMyMessage(messageString);
             session.update(message);
             tx.commit();
         } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
             e.printStackTrace();
+            if (tx != null) {
+
+                tx.rollback();
+            }
+
         } finally {
             session.close();
         }
-    }*/
+    }
     /**
      * Method to list all userRoles in the persistence
      * @return all myMessages

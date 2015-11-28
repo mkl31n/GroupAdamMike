@@ -42,3 +42,6 @@ I will be clicking off a couple classes a night before monday.
 <br />
 Disregard note about update test not working. Solved with
 GRANT UPDATE ON fortune.* to 'administrator'@'localhost';
+  
+<br /> Also, for some reason, I couldn't wrap my head about a String value not matching an Object value that I thought was outputing as a string
+Solution <b>String.valueOf(dao.getMessage(message.getId())</b>

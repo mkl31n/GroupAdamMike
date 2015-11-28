@@ -38,3 +38,7 @@ For the DAOTest, we are sitting at 100% class test coverage (assuming for packag
 
 <br />
 I will be clicking off a couple classes a night before monday.
+
+<br />
+Disregard note about update test not working. Solved with
+GRANT UPDATE ON fortune.* to 'administrator'@'localhost';

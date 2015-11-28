@@ -23,3 +23,18 @@ way more time on this than I thought I would have.
 Think we are on the same page once again.  Broke some methods into smaller methods.  Believe I had added jDoc to all 
 classes and methods. Will double check after getting some sleep.
 Some code will need to go through to get full understanding. -AJF
+
+## 11/25 - Update
+hibernate was not allowed access to delete records from the web page. Corrected with: <br />
+GRANT DELETE ON fortune.* TO 'administrator'@'localhost'; <br />
+
+<br />
+started testing 
+
+## 11/28 - Update
+Completed tests on the MessageDao. Mike, I am sending you a message on Slack after I push this about the update
+method test.  <br /><br />
+For the DAOTest, we are sitting at 100% class test coverage (assuming for package), 100% method test coverage, and 85% Line Coverage
+
+<br />
+I will be clicking off a couple classes a night before monday.

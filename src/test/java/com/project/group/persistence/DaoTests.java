@@ -15,6 +15,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -90,9 +93,13 @@ public class DaoTests {
 
     @Test
     public void getMyMessageList() {
+        MessageDao dao = new MessageDao();
+        List<Message> list = new ArrayList<Message>();
 
+        list= dao.getMyMessageList();
 
-
+        assertNotNull("list is not null", list.size());
+        assertTrue(list.size() == 8);
     }
 
     @Test
@@ -126,7 +133,5 @@ public class DaoTests {
         } catch (HibernateException e) {
             assertNull(e);
         }
-
-
     }
 }

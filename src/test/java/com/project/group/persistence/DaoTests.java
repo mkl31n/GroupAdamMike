@@ -70,20 +70,23 @@ public class DaoTests {
     }
 
 
-   // @Test
-    /*public void addOrUpdateUserMessage() {
+    @Test
+    public void addOrUpdateUserMessage() {
         MessageDao dao = new MessageDao();
-        Message message = new Message(0, "testing addOrUpdateUserMessage");
-        System.out.println("id: " + message.getId());
-        assertEquals("testing addOrUpdateUserMessage", message.getMyMessage());
+        Message message = new Message(0, "testing update message");
 
-        dao.addOrUpdateUserMessage(0, "updating message");
+        dao.addMessage(message);
 
-        assertEquals("updating message", message.getMyMessage());
-        assertNotNull("integer is null",message.getId());
+        //assertEquals("testing update message", message.getMyMessage());
+        System.out.print(dao.getMessage(message.getId()));
+        dao.addOrUpdateUserMessage(message.getId(), "updating message");
+        System.out.println(dao.getMessage(message.getId())); // MESSAGE IS NOT UPDATING
+
+        //assertEquals("updating message", message.getMyMessage());
+      // assertNotNull("integer is null",message.getId());
 
         dao.deleteMyMessageById(message.getId());
-    }*/
+    }
 
     @Test
     public void getMyMessageList() {

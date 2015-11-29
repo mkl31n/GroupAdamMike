@@ -97,8 +97,13 @@ public class DaoTests {
 
         list= dao.getMyMessageList();
 
+        int i; //reference to count of messages in database
+        for (i = 0; i < list.size(); i ++) {
+            i++;
+        }
+
         assertNotNull("list is not null", list.size());
-        assertTrue(list.size() == 8);
+        assertTrue(list.size() == i);
     }
 
     @Test

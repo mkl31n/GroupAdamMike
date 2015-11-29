@@ -1,5 +1,6 @@
 package com.project.group;
 
+import com.project.group.action.Randomizer;
 import com.project.group.entity.Message;
 import com.project.group.persistence.MessageDao;
 
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Random;
 
 @WebServlet(
         name = "MessageServlet",

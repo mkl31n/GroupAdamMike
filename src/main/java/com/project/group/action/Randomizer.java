@@ -1,4 +1,4 @@
-package com.project.group;
+package com.project.group.action;
 
 import com.project.group.entity.Message;
 import com.project.group.persistence.MessageDao;

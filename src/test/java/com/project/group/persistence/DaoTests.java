@@ -9,12 +9,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import org.hibernate.engine.transaction.spi.LocalStatus;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.transaction.Synchronization;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +56,6 @@ public class DaoTests {
         sessionFactory = config.buildSessionFactory(registry);
         session = sessionFactory.openSession();
 
-
     }
 
     @Test
@@ -75,35 +76,47 @@ public class DaoTests {
 
     @Test
     public void addOrUpdateUserMessage() {
+
         MessageDao dao = new MessageDao();
         Message message = new Message(0, "testing update message");
 
-        dao.addMessage(message);
+        try {
+            dao.addMessage(message);
 
-        assertEquals("testing update message", message.getMyMessage());
+            assertEquals("testing update message", message.getMyMessage());
 
-        dao.addOrUpdateUserMessage(message.getId(), "updating message");
+            dao.addOrUpdateUserMessage(message.getId(), "updating message");
 
-        assertEquals( "updating message" , String.valueOf(dao.getMessage(message.getId())));
-        assertNotNull("integer is null",message.getId());
+            assertEquals("updating message", String.valueOf(dao.getMessage(message.getId())));
+            assertNotNull("integer is null", message.getId());
 
-        dao.deleteMyMessageById(message.getId());
+            dao.deleteMyMessageById(message.getId());
+        } catch (HibernateException e) {
+            assertNull(e);
+        }
     }
 
     @Test
     public void getMyMessageList() {
-        MessageDao dao = new MessageDao();
-        List<Message> list = new ArrayList<Message>();
 
-        list= dao.getMyMessageList();
+        try {
 
-        int i; //reference to count of messages in database
-        for (i = 0; i < list.size(); i ++) {
-            i++;
+            MessageDao dao = new MessageDao();
+            List<Message> list = new ArrayList<Message>();
+
+            list = dao.getMyMessageList();
+
+            int i; //reference to count of messages in database
+            for (i = 0; i < list.size(); i++) {
+                i++;
+            }
+
+            assertNotNull("list is not null", list.size());
+            assertTrue(list.size() == i);
+
+        } catch (HibernateException e) {
+            assertNull(e);
         }
-
-        assertNotNull("list is not null", list.size());
-        assertTrue(list.size() == i);
     }
 
     @Test
@@ -136,6 +149,7 @@ public class DaoTests {
             assertFalse(message.getId() == 4);
         } catch (HibernateException e) {
             assertNull(e);
+
         }
     }
 }

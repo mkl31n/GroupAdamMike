@@ -13,6 +13,7 @@ import org.hibernate.engine.transaction.spi.LocalStatus;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -97,9 +98,7 @@ public class DaoTests {
     }
 
     @Test
-    public void getMyMessageList() {
-
-        try {
+    public void getMyMessageList() throws HibernateException { //DOES NOT EFFECT COVERAGE%
 
             MessageDao dao = new MessageDao();
             List<Message> list = new ArrayList<Message>();
@@ -113,10 +112,6 @@ public class DaoTests {
 
             assertNotNull("list is not null", list.size());
             assertTrue(list.size() == i);
-
-        } catch (HibernateException e) {
-            assertNull(e);
-        }
     }
 
     @Test
@@ -131,7 +126,7 @@ public class DaoTests {
             dao.deleteMyMessageById(message.getId());
             assertNull("testing deleteMessage", dao.getMessage(message.getId()));
         } catch (HibernateException e) {
-            assertNull(e);
+            fail("hibernate exception was caught"); //DOES NOT EFFECT COVERAGE
         }
     }
 

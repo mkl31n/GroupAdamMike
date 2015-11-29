@@ -25,6 +25,9 @@ import java.util.Random;
  */
 public class MessageServlet extends HttpServlet {
 
+    MessageDao attribute;
+    HttpSession session;
+
     /**
      * Retrieves random message from database to display to the user as a fortune
      * @param request HttpServletRequest object
@@ -35,23 +38,17 @@ public class MessageServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException,IOException {
 
+        Randomizer randomizer = new Randomizer();
+
         ServletContext context = getServletContext();
-        MessageDao attribute = (MessageDao)context.getAttribute("dao");
-        Random random = new Random();
+        attribute = (MessageDao)context.getAttribute("dao");
 
-        Message returnedMessage = (Message) attribute.getMyMessageList().get(random.nextInt(
-                attribute.getMyMessageList().size()));
+        session = request.getSession();
 
-        // get one Message*
-        System.out.println("Getting one record");
-        System.out.println(returnedMessage);
-        System.out.println();
+        Message message = randomizer.randomMessage();
+        session.setAttribute("returnedMessage", message);
 
-        HttpSession session = request.getSession();
-
-        session.setAttribute("returnedMessage", returnedMessage);
-
-       forwardUser(request, response);
+        forwardUser(request, response);
     }
 
     /**

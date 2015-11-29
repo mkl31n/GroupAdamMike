@@ -121,9 +121,6 @@ public class MessageDao {
         Message myMessage = null;
         try {
             myMessage = (Message)session.get(Message.class, id);
-            if (myMessage != null) {
-                return myMessage;
-            }
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {

@@ -60,6 +60,9 @@ public class DaoTests {
     }
 
     @Test
+    /**
+     * test method for addMessage in MessageDao
+     */
     public void addMessage() {
 
         try {
@@ -77,6 +80,9 @@ public class DaoTests {
 
 
      @Test
+     /**
+      * test method for addOrUpDateUserMessage in MessageDao
+      */
     public void addOrUpdateUserMessage() {
 
         MessageDao dao = new MessageDao();
@@ -100,6 +106,9 @@ public class DaoTests {
     }
 
     @Test
+    /**
+     * test method for getMyMessageList in MessageDao
+     */
     public void getMyMessageList() { //DOES NOT EFFECT COVERAGE%
 
         try {
@@ -122,6 +131,9 @@ public class DaoTests {
     }
 
     @Test
+    /**
+     * test method for deleteMyMessageById in MessageDao
+     */
     public void deleteMyMessageById() {
 
         try {
@@ -138,6 +150,9 @@ public class DaoTests {
     }
 
     @Test
+    /**
+     * test method for getMessage in MessageDao
+     */
     public void getMessage() {
 
         try {

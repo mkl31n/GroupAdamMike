@@ -17,6 +17,12 @@ public class AddMessage {
      */
     public Message addMessageData(String user_message) {
 
+        MessageDao dao = new MessageDao();
+        Message message = new Message(0, user_message);
+
+        dao.addMessage(message);
+
+        return message;
 
     }
 }

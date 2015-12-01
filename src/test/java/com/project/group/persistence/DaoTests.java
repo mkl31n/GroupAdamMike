@@ -6,7 +6,7 @@ import com.project.group.persistence.MessageDao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+
 import org.hibernate.cfg.Configuration;
 
 import org.hibernate.engine.transaction.spi.LocalStatus;
@@ -70,12 +70,13 @@ public class DaoTests {
             assertNotNull("integer is null", message.getId());
             dao.deleteMyMessageById(message.getId());
         } catch (HibernateException e) {
-            assertNull(e);
+            fail("hibernate exception was caught");
         }
+
     }
 
 
-    @Test
+     @Test
     public void addOrUpdateUserMessage() {
 
         MessageDao dao = new MessageDao();
@@ -93,13 +94,15 @@ public class DaoTests {
 
             dao.deleteMyMessageById(message.getId());
         } catch (HibernateException e) {
-            assertNull(e);
+            fail("hibernate exception was caught");
         }
+
     }
 
     @Test
-    public void getMyMessageList() throws HibernateException { //DOES NOT EFFECT COVERAGE%
+    public void getMyMessageList() { //DOES NOT EFFECT COVERAGE%
 
+        try {
             MessageDao dao = new MessageDao();
             List<Message> list = new ArrayList<Message>();
 
@@ -112,6 +115,10 @@ public class DaoTests {
 
             assertNotNull("list is not null", list.size());
             assertTrue(list.size() == i);
+        } catch (HibernateException e) {
+            fail("hibernate exception was caught");
+        }
+
     }
 
     @Test
@@ -143,8 +150,8 @@ public class DaoTests {
             assertEquals("testing getMessage", message.getMyMessage());
             assertFalse(message.getId() == 4);
         } catch (HibernateException e) {
-            assertNull(e);
-
+            fail("hibernate exception was caught");
         }
     }
+
 }

@@ -37,12 +37,31 @@ public class AddMessageServlet extends HttpServlet{
 
         ServletContext context = getServletContext();
 
-        AddMessage addMessage = new AddMessage();
-        addMessage.addMessageData(request);
+        receiveParameter(request);
 
         createSession(request);
 
         redirectUserToMessageAdd(response);
+    }
+
+    /**
+     * Receives values of jsp text box
+     * @param request HttpServletRequest object
+     */
+    public void receiveParameter(HttpServletRequest request) {
+
+        String user_message = request.getParameter("user_message");
+        addUserMessage(user_message);
+    }
+
+    /**
+     * Instantiates an AddMessage object
+     *
+     */
+    public void addUserMessage(String user_message)  {
+
+        AddMessage addMessage = new AddMessage();
+        addMessage.addMessageData(user_message);
     }
 
     /**

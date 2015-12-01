@@ -11,7 +11,17 @@ import java.util.List;
  */
 public class ReadMessages {
 
+    /**
+     * method to retrieve a list of all messages in database
+     * @return read
+     */
+    public List readAll() {
 
+        MessageDao dao = new MessageDao();
+        List read = dao.getMyMessageList();
+
+        return read;
+    }
 
 
 }

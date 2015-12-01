@@ -1,5 +1,6 @@
 package com.project.group;
 
+import com.project.group.action.AddMessage;
 import com.project.group.entity.Message;
 import com.project.group.persistence.MessageDao;
 
@@ -35,32 +36,33 @@ public class AddMessageServlet extends HttpServlet{
             throws ServletException, IOException {
 
         ServletContext context = getServletContext();
-        MessageDao attribute = (MessageDao)context.getAttribute("dao");
 
-        String user_message = request.getParameter("user_message");
+        AddMessage addMessage = new AddMessage();
+        addMessage.addMessageData(request);
 
-        Message message = new Message(0, user_message);
-
-        int success = attribute.addMessage(message);
-
-        HttpSession session = request.getSession();
-
-        if (success > 0) {
-            session.setAttribute("AddMessage",
-                    "Success. Row inserted.");
-            System.out.print(success); //SYstem.out.println?
-        } else {
-
-            /*
-
-             */
-            session.setAttribute("AddMessage",
-                    "Row NOT inserted.");
-            System.out.print(success);
-            System.out.print("Attribute not found.");
-        }
+        createSession(request);
 
         redirectUserToMessageAdd(response);
+    }
+
+    /**
+     * recieve session
+     * @param request HttpServletRequest object
+     */
+    public void createSession(HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        writeSuccessSessionMessage(session);
+    }
+
+    /**
+     * Write a message to web page for successful message add
+     * @param session HttpSession object
+     */
+    public void writeSuccessSessionMessage(HttpSession session) {
+
+        String success = "Sucess. Row Inserted";
+        session.setAttribute("AddMessage", success);
     }
 
     /**

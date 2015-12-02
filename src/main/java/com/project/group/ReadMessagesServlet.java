@@ -1,5 +1,6 @@
 package com.project.group;
 
+import com.project.group.action.ReadMessages;
 import com.project.group.entity.Message;
 import com.project.group.persistence.MessageDao;
 
@@ -74,15 +75,17 @@ public class ReadMessagesServlet extends HttpServlet {
     public void performSearch(String term, String stype) {
 
         int i = Integer.parseInt(term);
+        ReadMessages read = new ReadMessages();
 
         if (stype.equals("read_all")) {
-            List read = attribute.getMyMessageList();
-            session.setAttribute("readList", read);
+
+            session.setAttribute("readList", read.readAll());
         } else if (stype.equals("delete")) {
-              attribute.deleteMyMessageById(i);
+
+            read.deleteThisMessage(i);
         } else {
-            Message read =  attribute.getMessage(i);
-            session.setAttribute("readMessage", read);
+
+            session.setAttribute("readMessage", read.readSelectMessage(i));
         }
     }
 }

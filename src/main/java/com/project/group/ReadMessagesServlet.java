@@ -20,7 +20,7 @@ import java.util.List;
 )
 
 /**
- * @author michaelklein
+ * @author michaelklein, afaherty
  * @version 1.0 on 11/19/15.
  */
 public class ReadMessagesServlet extends HttpServlet {

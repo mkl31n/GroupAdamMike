@@ -30,6 +30,7 @@ GRANT DELETE ON fortune.* TO 'administrator'@'localhost'; <br />
 
 <br />
 started testing 
+-AJF
 
 ## 11/28 - Update
 Completed tests on the MessageDao. Mike, I am sending you a message on Slack after I push this about the update
@@ -45,3 +46,11 @@ GRANT UPDATE ON fortune.* to 'administrator'@'localhost';
   
 <br /> Also, for some reason, I couldn't wrap my head about a String value not matching an Object value that I thought was outputing as a string
 Solution <b>String.valueOf(dao.getMessage(message.getId())</b>
+-AJF
+
+## 12/1/2015 -Update
+Broke out business logic in ReadMessagesServlet.  
+Changed class names of servlets that forward user for clarity.  
+JavaDoc for non-test classes is completed.
+
+-AJF

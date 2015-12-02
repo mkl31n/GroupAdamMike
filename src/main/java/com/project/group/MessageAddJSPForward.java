@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        name = "MessageAddServlet",
-        urlPatterns = { "/MessageAddServlet" }
+        name = "addMessage",
+        urlPatterns = { "/addMessage" }
 )
 
 /**
- * Created by michaelklein on 11/19/15.
+ * Forwards user to messageAdd.jsp
+ * @created michaelklein
+ * @vrsion 1.0 on 11/19/15.
  */
-public class MessageAddServlet extends HttpServlet{
+public class MessageAddJSPForward extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

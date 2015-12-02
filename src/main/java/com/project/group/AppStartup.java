@@ -17,7 +17,7 @@ import java.io.IOException;
 )
 
 /**
- *
+ * Preloads data into the application at startup
  * @author michaelklein
  * @version 1.0 on 11/19/15.
  */
@@ -29,9 +29,5 @@ public class AppStartup extends HttpServlet{
         System.out.println("The MessageDao is loaded!");
         ServletContext context = getServletContext();
         context.setAttribute("dao", dao);
-    }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
     }
 }

@@ -20,6 +20,7 @@ import java.util.List;
 )
 
 /**
+ * Performs actions based on user input
  * @author michaelklein, afaherty
  * @version 1.0 on 11/19/15.
  */

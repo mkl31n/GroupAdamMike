@@ -20,7 +20,7 @@ import java.io.IOException;
 
 /**
  * Allows admin to add new message to database
- * @author michaelklein
+ * @author michaelklein, afaherty
  * @version 1.0 on 11/19/15.
  */
 public class AddMessageServlet extends HttpServlet{

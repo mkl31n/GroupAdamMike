@@ -18,7 +18,7 @@ public class Message {
     }
 
     /**
-     *
+     * overloaded constructor for Message objects
      * @param id ref to myMessage id number
      * @param myMessage ref to myMessage String
      */
@@ -59,6 +59,10 @@ public class Message {
         this.myMessage = myMessage;
     }
 
+    /**
+     * string of message content
+     * @return myMessage
+     */
     public String toString() {
         return myMessage;
     }

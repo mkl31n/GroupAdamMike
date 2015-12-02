@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Data Access Object class for Message Object crud operations
  * @author michaelklein
  * @version 1.0 on 11/16/15.
  */

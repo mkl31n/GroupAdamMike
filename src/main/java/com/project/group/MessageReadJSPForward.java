@@ -10,15 +10,16 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(
-        name = "MessageReadServlet",
-        urlPatterns = { "/MessageReadServlet" }
+        name = "readMessage",
+        urlPatterns = { "/readMessage" }
 )
 
 /**
+ * Forwards user to messageRead.jsp
  * @author michaelklein
  * @version 1.0 on 11/19/15.
  */
-public class MessageReadServlet extends HttpServlet{
+public class MessageReadJSPForward extends HttpServlet{
 
     /**
      * Forwards admin to messageRead.jsp. Receive session data
@@ -38,6 +39,4 @@ public class MessageReadServlet extends HttpServlet{
         HttpSession session = request.getSession();
         session.invalidate();
     }
-
-
 }
